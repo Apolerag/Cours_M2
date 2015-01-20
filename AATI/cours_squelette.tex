@@ -1,0 +1,120 @@
+\documentclass[11pt]{article}
+\usepackage[french]{babel}
+
+\usepackage[utf8]{inputenc}
+\usepackage{palatino}
+\usepackage[T1]{fontenc}
+
+
+\usepackage{url}
+\usepackage{amsmath}
+
+\usepackage[top=2cm,bottom=2cm,left=2.1cm,right=2.1cm,headsep=10pt,a4paper]{geometry}
+\usepackage{fancyhdr}
+
+
+\usepackage{graphicx,float} % figure et placement de figure
+\usepackage{listings} %%inclusion de programmes
+
+\lstset{
+language=C++,
+basicstyle=\ttfamily\small, %
+identifierstyle=\color{black}, %
+keywordstyle=\color{blue}, %
+stringstyle=\color{blue}, %
+commentstyle=\it\color{green}, %
+}
+
+\usepackage{xcolor}
+
+\pagestyle{fancy}
+\lhead{}
+\chead{\fontsize{10}{10}{M2IM - UCBL - 2014/2015}}
+\rhead{}
+
+\lfoot{}
+\cfoot{\thepage}
+\rfoot{}
+
+
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+ \author{\fontsize{14}{14}{Aurélien CHEMIER 10908892}}
+ \title{\fontsize{16}{16}{Analyse et Traitement d'Image}\\ {Squelettes}}
+ \date{\fontsize{11}{11}{\today}}
+
+\begin{document}
+
+\thispagestyle{empty}
+\maketitle
+
+\newpage
+\tableofcontents
+\newpage
+
+\section{Approches générales, Objectifs, Intérêts}
+
+	\subsection{Qu'est ce qu'un squelette ?}
+		C'est une représentation filiforme, \textit{centrée} dans la forme à analyser, représentative de son \textit{allure générale}
+		(élongation, déformation, composantes connexes ...).
+
+	\subsection{Intérêts}
+		\begin{itemize}
+		\item C'est une version simplifiée d'un objet, tout en ayant la même \textit{homotopie} que l'objet initial.
+		\item Il peut éventuellement permettre l'isolation des \textit{des composantes connexes} d'un objet.
+		\item Il permet un gain de place mémoire (condense l'information bidimensionnel en une représentation linéaire).
+		\end{itemize}
+
+		La notion de squelette est apparue pour l'étude d'objets minces (En effets, pour de telles figures, c'est l'allure d'une représentation filiforme qui est importante) (reconnaissance de caractères).
+
+	\subsection{Concept de \textit{boules maximales} (Calabi)}
+		C'est une définition plus formelle de la notion de squelette, à la fois dans le cas continu et le cas discret.
+
+		Calabi est le premier à prouver que le squelette par boules maximales (ou plus exactement la \textit{fonction d'étanchéité} permet de reconstruire l'ensemble initial).
+
+\section{Historique}
+	\begin{itemize}
+	\item Blum (1961) introduit le concept du squelette (\textit{axe médian} ou \textit{axe symétriques}). \\
+	Sa définition formalise la notion intuitive de squelette (représentation minimale d'un ensemble sous forme de ligne d'épaisseur 1).
+	\item Il utilise le concept du \textit{feu de prairie}.
+	\end{itemize}
+
+	\subsection{Définition}
+		En supposant qu'un feu se propage dans l'ensemble X considéré à vitesse uniforme à partir des contours de celui-ci, l'axe médian (squelette) de X est défini comme l'ensemble des points d'intersections des différents fronts de feu.
+
+	\subsection{Introduction de propriétés}
+		\begin{itemize}
+		\item Le squelette est \textit{mince}, formé de l'union d'arcs et de courbes.
+		\item Il n'est pas affecté par des transformations de types translation ou rotation.
+		\end{itemize}
+
+\section{Approche du squelette par boules maximales}
+	\subsection{Définition, notation}
+		Soit $A$ un ensemble non vide, fermé et borné dans $R^2$, on établit que toute boulé fermé contenue dans $A$ est elle-même contenue dans une boule maximale incluse dans $A$.
+
+		Pour toute partie A  fermée bornée non vide de $R^2$, on appelle squelette de A $S(A)$ l'ensemble des centres des boules maximales contenue dans A.
+
+		\textbf{Remarque :} Les boules maximales de  $A$ touchent $\delta A$ en au moins 2 points distincts.
+
+
+
+
+
+
+\end{document}
+
+%\begin{figure}[H]
+%      \centering
+ %     \includegraphics[scale=0.7]{Image/grandTableau.png} 
+ %     \caption{Position de départ}
+%      \label{fig:grandTableau}
+%  \end{figure}
+
+%	\[
+%	\begin{pmatrix}
+%	1 & 2 & 3 \\
+%	4 & 5 & 6 \\
+%	7 & 8 & 9
+%	\end{pmatrix}
+%	\]
